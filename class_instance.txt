@@ -13,6 +13,6 @@ while in instance we can only access one object in the user class like the usern
 
 -also if we have class for books it will contain all the books we have,but if we want use access on a specifc book we will do instance method.
 
--another example from real life, let's say we have home of 5 rooms
+-another example from real life, let's ggsay we have home of 5 rooms
 the whole home is a class
 while if we want say the first room is empty,this will be instance method
