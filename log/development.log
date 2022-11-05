@@ -2264,3 +2264,129 @@ Migrating to CreateJobs (20221103185326)
   [1m[36mTRANSACTION (21.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cars" for 127.0.0.1 at 2022-11-03 12:04:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 1.0ms | Allocations: 217)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3604)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 4989)
+Completed 200 OK in 50ms (Views: 33.4ms | ActiveRecord: 0.4ms | Allocations: 6999)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-03 12:04:58 -0700
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1263)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 2485)
+Completed 200 OK in 30ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 4090)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-03 12:05:01 -0700
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 759)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 1795)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 2095)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-11-03 12:05:02 -0700
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 26.8ms | Allocations: 4894)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 32.0ms | Allocations: 5169)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 6308)
+Completed 200 OK in 49ms (Views: 39.9ms | ActiveRecord: 1.7ms | Allocations: 9674)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-11-03 12:05:58 -0700
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"7", "company"=>"pureplatform"}, "commit"=>"Create Job"}
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: create, request: #<ActionDispatch::Request:0x0000024abde5a588>, params: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"7", "company"=>"pureplatform"}, "commit"=>"Create Job", "controller"=>"jobs", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mJob Exists? (9.4ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mJob Create (7.3ms)[0m  [1m[32mINSERT INTO "jobs" ("user_id", "jobtitle", "workhours", "company", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["jobtitle", "programmer"], ["workhours", nil], ["company", "pureplatform"], ["created_at", "2022-11-03 19:05:58.857319"], ["updated_at", "2022-11-03 19:05:58.857319"]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/jobs/1
+Completed 302 Found in 51ms (ActiveRecord: 23.4ms | Allocations: 7559)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-03 12:05:58 -0700
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 1.0ms | Allocations: 203)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1104)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 2140)
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.3ms | Allocations: 3606)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-03 12:06:04 -0700
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/_job.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 878)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 1914)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 2193)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-11-03 12:06:10 -0700
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.7ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 11.3ms | Allocations: 2086)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2174)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 3210)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.7ms | Allocations: 3493)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-11-03 12:06:24 -0700
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"editor", "name"=>"4", "company"=>"pureplatform"}, "commit"=>"Create Job"}
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: create, request: #<ActionDispatch::Request:0x0000024abbd38b70>, params: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"editor", "name"=>"4", "company"=>"pureplatform"}, "commit"=>"Create Job", "controller"=>"jobs", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mJob Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.3ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 9.3ms | Allocations: 2925)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 3012)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 4040)
+Completed 422 Unprocessable Entity in 36ms (Views: 18.0ms | ActiveRecord: 1.0ms | Allocations: 7951)
+
+
