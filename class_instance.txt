@@ -15,4 +15,4 @@ while in instance we can only access one object in the user class like the usern
 
 -another example from real life, let's ggsay we have home of 5 rooms
 the whole home is a class
-while if we want say the first room is empty,this will be instance method
+while if we want say the first room is empty,this will be instance method.
