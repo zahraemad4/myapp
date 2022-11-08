@@ -9,7 +9,9 @@
       <th scope="col">name</th>
       <th scope="col">username</th>
       <th scope="col">email</th>
+      <th scope="col">identifier</th>
       <th scope="col">action</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -19,7 +21,9 @@
       <td><%= user.name%></td>
       <td><%= user.username%></td>
       <td><%= user.email%></td>
+      <td><%= user.identifier%></td>
       <td><%= link_to 'show', user_path(user.id), class:"btn btn-primary btn-sm" %></td>
+      
     </tr>
 
     <%end%>
