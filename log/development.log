@@ -3381,3 +3381,720 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 2175)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-08 10:45:13 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 110.3ms | Allocations: 6031)
+  Rendered layout layouts/application.html.erb (Duration: 508.7ms | Allocations: 28109)
+Completed 200 OK in 643ms (Views: 548.0ms | ActiveRecord: 4.8ms | Allocations: 34729)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-08 10:45:24 -0800
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/index.html.erb within layouts/application (Duration: 25.8ms | Allocations: 1304)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 2531)
+Completed 200 OK in 75ms (Views: 48.4ms | ActiveRecord: 0.5ms | Allocations: 4300)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-11-08 10:45:27 -0800
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 109.3ms | Allocations: 5073)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 136.5ms | Allocations: 5379)
+  Rendered layout layouts/application.html.erb (Duration: 151.4ms | Allocations: 6521)
+Completed 200 OK in 171ms (Views: 154.5ms | ActiveRecord: 1.8ms | Allocations: 10195)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-11-08 10:45:40 -0800
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"6", "company"=>"pureplatform"}, "commit"=>"Create Job"}
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: create, request: #<ActionDispatch::Request:0x000001dfda09b760>, params: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"6", "company"=>"pureplatform"}, "commit"=>"Create Job", "controller"=>"jobs", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mJob Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mJob Create (2.6ms)[0m  [1m[32mINSERT INTO "jobs" ("user_id", "jobtitle", "workhours", "company", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["jobtitle", "programmer"], ["workhours", nil], ["company", "pureplatform"], ["created_at", "2022-11-08 18:45:41.125966"], ["updated_at", "2022-11-08 18:45:41.125966"]]
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/jobs_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/jobs/1
+Completed 302 Found in 105ms (ActiveRecord: 11.6ms | Allocations: 10056)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:45:41 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (2.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 11.1ms | Allocations: 243)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 30.7ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 2571)
+Completed 200 OK in 57ms (Views: 45.0ms | ActiveRecord: 2.0ms | Allocations: 4100)
+
+
+Started GET "/jobs/1/edit" for 127.0.0.1 at 2022-11-08 10:45:47 -0800
+Processing by JobsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 13.1ms | Allocations: 2329)
+  Rendered jobs/edit.html.erb within layouts/application (Duration: 34.3ms | Allocations: 2587)
+  Rendered layout layouts/application.html.erb (Duration: 49.3ms | Allocations: 3618)
+Completed 200 OK in 65ms (Views: 50.7ms | ActiveRecord: 0.7ms | Allocations: 4516)
+
+
+Started PATCH "/jobs/1" for 127.0.0.1 at 2022-11-08 10:45:53 -0800
+Processing by JobsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"6", "company"=>"pureplatform"}, "commit"=>"Update Job", "id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: update, request: #<ActionDispatch::Request:0x000001dfdb159ae8>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"6", "company"=>"pureplatform"}, "commit"=>"Update Job", "controller"=>"jobs", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mJob Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."id" != ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/jobs/1
+Completed 302 Found in 34ms (ActiveRecord: 1.7ms | Allocations: 4287)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:45:54 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 587)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 1615)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.3ms | Allocations: 2352)
+
+
+Started GET "/jobs/1/edit" for 127.0.0.1 at 2022-11-08 10:45:58 -0800
+Processing by JobsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 10.4ms | Allocations: 2159)
+  Rendered jobs/edit.html.erb within layouts/application (Duration: 13.8ms | Allocations: 2282)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 3310)
+Completed 200 OK in 36ms (Views: 30.0ms | ActiveRecord: 0.7ms | Allocations: 4048)
+
+
+Started PATCH "/jobs/1" for 127.0.0.1 at 2022-11-08 10:46:06 -0800
+Processing by JobsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"8", "company"=>"pureplatform"}, "commit"=>"Update Job", "id"=>"1"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: update, request: #<ActionDispatch::Request:0x000001dfdb36eba8>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"8", "company"=>"pureplatform"}, "commit"=>"Update Job", "controller"=>"jobs", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."id" != ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/jobs/1
+Completed 302 Found in 39ms (ActiveRecord: 2.3ms | Allocations: 4020)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:46:06 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 595)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 1623)
+Completed 200 OK in 37ms (Views: 30.7ms | ActiveRecord: 0.3ms | Allocations: 2360)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:46:13 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 1590)
+Completed 200 OK in 26ms (Views: 20.6ms | ActiveRecord: 0.3ms | Allocations: 2327)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-08 10:46:21 -0800
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/_job.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 1943)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.4ms | Allocations: 2222)
+
+
+Started GET "/cars" for 127.0.0.1 at 2022-11-08 10:46:33 -0800
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (1.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 2.0ms | Allocations: 220)
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered cars/index.html.erb within layouts/application (Duration: 34.4ms | Allocations: 5145)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 6366)
+Completed 200 OK in 73ms (Views: 56.2ms | ActiveRecord: 4.1ms | Allocations: 7909)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2022-11-08 10:46:55 -0800
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered jobs/_job.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 1929)
+Completed 200 OK in 28ms (Views: 23.1ms | ActiveRecord: 0.5ms | Allocations: 2231)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:46:58 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 1605)
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 0.3ms | Allocations: 2364)
+
+
+Started GET "/jobs/1/edit" for 127.0.0.1 at 2022-11-08 10:47:00 -0800
+Processing by JobsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.6ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 12.5ms | Allocations: 2236)
+  Rendered jobs/edit.html.erb within layouts/application (Duration: 14.1ms | Allocations: 2360)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 3388)
+Completed 200 OK in 35ms (Views: 27.7ms | ActiveRecord: 0.9ms | Allocations: 4125)
+
+
+Started PATCH "/jobs/1" for 127.0.0.1 at 2022-11-08 10:49:10 -0800
+Processing by JobsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"11", "company"=>"pureplatform"}, "commit"=>"Update Job", "id"=>"1"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+[31mUnpermitted parameter: :name. Context: { controller: JobsController, action: update, request: #<ActionDispatch::Request:0x000001dfdb8f0e78>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "job"=>{"user_id"=>"1", "jobtitle"=>"programmer", "name"=>"11", "company"=>"pureplatform"}, "commit"=>"Update Job", "controller"=>"jobs", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mJob Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company" = ? AND "jobs"."id" != ? AND "jobs"."user_id" = ? LIMIT ?[0m  [["company", "pureplatform"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/jobs_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/jobs/1
+Completed 302 Found in 37ms (ActiveRecord: 1.6ms | Allocations: 4159)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-11-08 10:49:10 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/_job.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 590)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 1618)
+Completed 200 OK in 27ms (Views: 20.3ms | ActiveRecord: 0.3ms | Allocations: 2355)
+
+
+Started GET "/jobs/cars" for 127.0.0.1 at 2022-11-08 10:49:24 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"cars"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:63:in `set_job'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.3ms | Allocations: 936)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Job with 'id'=cars):
+  
+app/controllers/jobs_controller.rb:63:in `set_job'
+Started GET "/profiles" for 127.0.0.1 at 2022-11-08 10:49:41 -0800
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:6
+  Rendered profiles/_profile.html.erb (Duration: 1.3ms | Allocations: 195)
+  Rendered profiles/_profile.html.erb (Duration: 0.4ms | Allocations: 20)
+  Rendered profiles/index.html.erb within layouts/application (Duration: 25.1ms | Allocations: 4401)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 5629)
+Completed 200 OK in 61ms (Views: 48.4ms | ActiveRecord: 2.7ms | Allocations: 7146)
+
+
+Started GET "/cars" for 127.0.0.1 at 2022-11-08 10:49:59 -0800
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/_car.html.erb (Duration: 0.3ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1293)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 2329)
+Completed 200 OK in 33ms (Views: 29.5ms | ActiveRecord: 0.4ms | Allocations: 2631)
+
+
+Started GET "/cars" for 127.0.0.1 at 2022-11-08 10:54:21 -0800
+Started GET "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:25 -0800
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 50)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/index.html.erb within layouts/application (Duration: 27.8ms | Allocations: 3841)
+  Rendered layout layouts/application.html.erb (Duration: 41.5ms | Allocations: 5069)
+Completed 200 OK in 68ms (Views: 44.2ms | ActiveRecord: 3.1ms | Allocations: 6830)
+
+
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.3ms | Allocations: 50)
+  Rendered cars/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1040)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 2292)
+Completed 200 OK in 65ms (Views: 28.0ms | ActiveRecord: 4.2ms | Allocations: 7553)
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:29 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered cars/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 561)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 1589)
+Completed 200 OK in 22ms (Views: 16.4ms | ActiveRecord: 0.3ms | Allocations: 2402)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2022-11-08 10:54:31 -0800
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (1.2ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 22.9ms | Allocations: 5155)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 45.9ms | Allocations: 5486)
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 6613)
+Completed 200 OK in 70ms (Views: 60.2ms | ActiveRecord: 2.3ms | Allocations: 7442)
+
+
+Started PATCH "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:36 -0800
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" IS NULL AND "cars"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Update (11.8ms)[0m  [1m[33mUPDATE "cars" SET "carnumber" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["carnumber", nil], ["updated_at", "2022-11-08 18:54:36.602684"], ["id", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/cars/1
+Completed 302 Found in 68ms (ActiveRecord: 21.6ms | Allocations: 8163)
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:36 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered cars/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 587)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 1616)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 2382)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2022-11-08 10:54:39 -0800
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.5ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 10.0ms | Allocations: 2142)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2266)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 3295)
+Completed 200 OK in 35ms (Views: 28.5ms | ActiveRecord: 0.8ms | Allocations: 4032)
+
+
+Started PATCH "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:47 -0800
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" IS NULL AND "cars"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/cars/1
+Completed 302 Found in 33ms (ActiveRecord: 1.3ms | Allocations: 3897)
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:47 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered cars/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 1590)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 2327)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2022-11-08 10:54:51 -0800
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 13.6ms | Allocations: 2112)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2235)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 3266)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 0.8ms | Allocations: 4003)
+
+
+Started PATCH "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:55 -0800
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>"12938"}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" = ? AND "cars"."id" != ? LIMIT ?[0m  [["carnumber", 12938], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Update (7.4ms)[0m  [1m[33mUPDATE "cars" SET "carnumber" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["carnumber", 12938], ["updated_at", "2022-11-08 18:54:55.153543"], ["id", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/cars/1
+Completed 302 Found in 57ms (ActiveRecord: 16.4ms | Allocations: 4562)
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2022-11-08 10:54:55 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered cars/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 570)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 1602)
+Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 0.3ms | Allocations: 2340)
+
+
+Started GET "/cars" for 127.0.0.1 at 2022-11-08 10:54:57 -0800
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 2.0ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/index.html.erb within layouts/application (Duration: 15.1ms | Allocations: 1357)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 2393)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 0.7ms | Allocations: 2674)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2022-11-08 10:54:59 -0800
+Processing by CarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.5ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 15.2ms | Allocations: 2068)
+  Rendered cars/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 2292)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 3328)
+Completed 200 OK in 40ms (Views: 33.8ms | ActiveRecord: 0.5ms | Allocations: 3695)
+
+
+Started POST "/cars" for 127.0.0.1 at 2022-11-08 10:55:22 -0800
+Processing by CarsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>""}, "commit"=>"Create Car"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" = ? LIMIT ?[0m  [["carnumber", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/new.html.erb within layouts/application
+  [1m[36mUser Pluck (0.8ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 15.2ms | Allocations: 2953)
+  Rendered cars/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 3040)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 4068)
+Completed 422 Unprocessable Entity in 62ms (Views: 32.3ms | ActiveRecord: 2.0ms | Allocations: 7905)
+
+
+Started POST "/cars" for 127.0.0.1 at 2022-11-08 11:05:04 -0800
+Processing by CarsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>""}, "commit"=>"Create Car"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mCar Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mCar Create (1.7ms)[0m  [1m[32mINSERT INTO "cars" ("user_id", "carname", "carcolor", "carnumber", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["carname", "ford"], ["carcolor", "black"], ["carnumber", nil], ["created_at", "2022-11-08 19:05:07.892046"], ["updated_at", "2022-11-08 19:05:07.892046"]]
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/cars/5
+Completed 302 Found in 77ms (ActiveRecord: 10.2ms | Allocations: 12264)
+
+
+Started GET "/cars/5" for 127.0.0.1 at 2022-11-08 11:05:07 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered cars/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 840)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2031)
+Completed 200 OK in 26ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 3700)
+
+
+Started GET "/cars/5/edit" for 127.0.0.1 at 2022-11-08 11:05:11 -0800
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 9.5ms | Allocations: 2357)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2483)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 3514)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 1.1ms | Allocations: 4325)
+
+
+Started PATCH "/cars/5" for 127.0.0.1 at 2022-11-08 11:05:14 -0800
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>""}, "commit"=>"Update Car", "id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" IS NULL AND "cars"."id" != ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/cars/5
+Completed 302 Found in 27ms (ActiveRecord: 1.2ms | Allocations: 4058)
+
+
+Started GET "/cars/5" for 127.0.0.1 at 2022-11-08 11:05:14 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered cars/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 574)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 1602)
+Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 2339)
+
+
+Started GET "/cars/5/edit" for 127.0.0.1 at 2022-11-08 11:05:17 -0800
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."name", "users"."id" FROM "users"[0m
+  ↳ app/views/cars/_form.html.erb:16
+  Rendered cars/_form.html.erb (Duration: 9.3ms | Allocations: 2124)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 10.6ms | Allocations: 2247)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 3275)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 0.7ms | Allocations: 4012)
+
+
+Started PATCH "/cars/5" for 127.0.0.1 at 2022-11-08 11:05:22 -0800
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "car"=>{"user_id"=>"1", "carname"=>"ford", "carcolor"=>"black", "carnumber"=>"39484"}, "commit"=>"Update Car", "id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."carnumber" = ? AND "cars"."id" != ? LIMIT ?[0m  [["carnumber", 39484], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mCar Update (7.3ms)[0m  [1m[33mUPDATE "cars" SET "carnumber" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["carnumber", 39484], ["updated_at", "2022-11-08 19:05:23.096092"], ["id", 5]]
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/cars/5
+Completed 302 Found in 43ms (ActiveRecord: 15.4ms | Allocations: 4582)
+
+
+Started GET "/cars/5" for 127.0.0.1 at 2022-11-08 11:05:23 -0800
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:63:in `set_car'
+  Rendering layout layouts/application.html.erb
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/_car.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered cars/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 570)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 1598)
+Completed 200 OK in 22ms (Views: 15.7ms | ActiveRecord: 0.3ms | Allocations: 2335)
+
+
+Started GET "/cars" for 127.0.0.1 at 2022-11-08 11:05:25 -0800
+Processing by CarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:6
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/_car.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered cars/_car.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered cars/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 1477)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 2513)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 0.5ms | Allocations: 2794)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221101103836)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "username" varchar, "email" varchar, "identifier" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221101103836"]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfiles (20221103164711)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "address" varchar, "phone" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103164711"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20221103172808)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar, "year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103172808"]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCars (20221103175444)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "carname" varchar, "carcolor" varchar, "carnumber" integer, "carprivate" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103175444"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJobs (20221103185326)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "jobtitle" varchar, "workhours" integer, "company" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103185326"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-08 19:13:48.986942"], ["updated_at", "2022-11-08 19:13:48.986942"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

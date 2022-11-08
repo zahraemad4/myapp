@@ -37,5 +37,5 @@ in terminal:
  User.first.book_title
 
 -another example from real life, let's ggsay we have home of 5 rooms
-the whole home is a class
+the whole home is a class.
 while if we want say the first room is empty,this will be instance method.

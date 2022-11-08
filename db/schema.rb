@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_185326) do
     t.string "carname"
     t.string "carcolor"
     t.integer "carnumber"
+    t.string "carprivate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

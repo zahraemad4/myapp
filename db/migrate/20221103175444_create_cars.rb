@@ -5,6 +5,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string :carname
       t.string :carcolor
       t.integer :carnumber
+      t.string :carprivate
 
       t.timestamps
     end
