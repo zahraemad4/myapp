@@ -1,7 +1,10 @@
 class User < ApplicationRecord   
-    validates :email, format:{with:URI::MailTo::EMAIL_REGEXP}
-    validates :username, length: {minimum:3},allow_blank:false
-    validates :name, presence: true, uniqueness:{case_sensitive:false} 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,  :rememberable, :validatable
+    #validates :email, format:{with:URI::MailTo::EMAIL_REGEXP}
+    #validates :username, length: {minimum:3},allow_blank:false
+    #validates :name, presence: true, uniqueness:{case_sensitive:false} 
     validates :identifier, presence: true 
     has_one :profile
     has_many :books

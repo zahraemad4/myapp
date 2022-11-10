@@ -1,6 +1,8 @@
 
-
+<%= button_to("log out", destroy_user_session_path, method: :delete)%>
 <h1>Users</h1>
+<%=current_user.email%>
+
 
 <table class="table">
   <thead>

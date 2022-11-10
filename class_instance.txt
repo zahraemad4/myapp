@@ -27,7 +27,7 @@ output:
 -also if we have class for books it will contain all the books we have,but if we want use access on a specifc book we will do instance method.
 User.all.books (this class method)
 
-User.first.book.title(this consider as instance method)
+User.first.book.title(this consider as instance method.)
 or we can create new method:
 
 def book_title 
