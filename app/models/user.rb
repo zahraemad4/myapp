@@ -10,6 +10,7 @@ class User < ApplicationRecord
     has_many :books
     has_many :cars
     has_many :jobs
+    has_one :house
 
     scope :by_book_year, -> (year) {joins(:books).where(books:{year:year}) }
 

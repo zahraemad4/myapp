@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_10_091439) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
   create_table "books", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -29,6 +29,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_091439) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clints", force: :cascade do |t|
+    t.integer "clint_id", null: false
+    t.string "full_name", null: false
+    t.string "phones"
+    t.string "birth_date"
+    t.string "gender"
+    t.string "clint_email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clint_email"], name: "index_clints_on_clint_email"
+    t.index ["clint_id"], name: "index_clints_on_clint_id"
+    t.index ["full_name"], name: "index_clints_on_full_name"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.integer "user_id"
     t.string "jobtitle"
@@ -36,6 +50,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_091439) do
     t.string "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "model"
+    t.string "serial", null: false
+    t.string "color"
+    t.string "phonenumber", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["model"], name: "index_phones_on_model"
+    t.index ["phonenumber"], name: "index_phones_on_phonenumber"
+    t.index ["serial"], name: "index_phones_on_serial"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'devise'
+#gem 'factory_bot', '~> 6.2', '>= 6.2.1'
+gem 'faker', '~> 3.0'
