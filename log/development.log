@@ -9490,3 +9490,395 @@ Processing by ClintsController#index as */*
 Completed 200 OK in 37ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 1245)
 
 
+Started GET "/clints/index" for ::1 at 2022-11-14 10:41:31 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:41:36 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.3ms | Allocations: 139)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.0ms | Allocations: 1226)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:41:46 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.3ms | Allocations: 138)
+Completed 200 OK in 32ms (Views: 26.2ms | ActiveRecord: 0.0ms | Allocations: 1245)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:41:56 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.8ms | Allocations: 139)
+Completed 200 OK in 34ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 1246)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:41:58 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:01 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:13 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.2ms | Allocations: 138)
+Completed 200 OK in 33ms (Views: 27.9ms | ActiveRecord: 0.0ms | Allocations: 1220)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:21 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  [1m[36mClint Load (0.5ms)[0m  [1m[34mSELECT "clints".* FROM "clints"[0m
+  ↳ app/views/clints/index.json.jbuilder:11
+  [1m[36mPhone Load (3.9ms)[0m  [1m[34mSELECT "phones".* FROM "phones" WHERE "phones"."clint_id" = ?[0m  [["clint_id", 1]]
+  ↳ app/views/clints/index.json.jbuilder:11
+  Rendered clints/index.json.jbuilder (Duration: 16.0ms | Allocations: 4246)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 4.4ms | Allocations: 5309)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: phones.clint_id):
+    8: #     json.partial!'clint', clint: clint
+    9: # end
+  
+app/views/clints/index.json.jbuilder:11
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:31 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.1ms | Allocations: 138)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 1233)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:44 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.5ms | Allocations: 138)
+Completed 200 OK in 33ms (Views: 28.1ms | ActiveRecord: 0.0ms | Allocations: 1245)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:42:54 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.2ms | Allocations: 138)
+Completed 200 OK in 33ms (Views: 28.1ms | ActiveRecord: 0.0ms | Allocations: 1245)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:43:03 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.3ms | Allocations: 138)
+Completed 200 OK in 33ms (Views: 26.2ms | ActiveRecord: 0.0ms | Allocations: 1245)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:43:17 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-14 10:43:59 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.3ms | Allocations: 135)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 1217)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:29:43 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 22.9ms | Allocations: 335)
+Completed 200 OK in 254ms (Views: 120.5ms | ActiveRecord: 0.0ms | Allocations: 4937)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:29:58 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.8ms | Allocations: 114)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 1268)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:30:04 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 21)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 409)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:30:08 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.1ms | Allocations: 21)
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:30:16 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.4ms | Allocations: 21)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:34:18 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.9ms | Allocations: 136)
+Completed 200 OK in 31ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 1218)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:34:21 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.3ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:36:17 -0800
+Processing by ClintsController#index as */*
+Completed 500 Internal Server Error in 11ms (Allocations: 3695)
+
+
+  
+NameError (undefined local variable or method `json' for #<ClintsController:0x000000000153d8>
+
+  json.phones @phones do |phone|
+  ^^^^
+Did you mean?  JSON):
+  
+app/controllers/clints_controller.rb:4:in `index'
+Started GET "/clints/index" for ::1 at 2022-11-15 05:36:25 -0800
+Processing by ClintsController#index as */*
+Completed 500 Internal Server Error in 11ms (Allocations: 3606)
+
+
+  
+NameError (undefined local variable or method `json' for #<ClintsController:0x000000000157c0>
+
+  json.phones @phones do |phone|
+  ^^^^
+Did you mean?  JSON):
+  
+app/controllers/clints_controller.rb:4:in `index'
+Started GET "/clints/index" for ::1 at 2022-11-15 05:37:44 -0800
+Processing by ClintsController#index as */*
+Completed 400 Bad Request in 2ms (Allocations: 570)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: ):
+  
+app/controllers/clints_controller.rb:3:in `index'
+Started GET "/clints/index" for ::1 at 2022-11-15 05:38:23 -0800
+Processing by ClintsController#index as */*
+Completed 500 Internal Server Error in 10ms (Allocations: 3695)
+
+
+  
+NameError (undefined local variable or method `nill' for #<ClintsController:0x00000000023938>
+
+  phones = params.fetch(:@phones , nill)
+                                   ^^^^
+Did you mean?  nil
+               nil?):
+  
+app/controllers/clints_controller.rb:3:in `index'
+Started GET "/clints/index" for ::1 at 2022-11-15 05:38:37 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.3ms | Allocations: 54)
+Completed 200 OK in 9ms (Views: 2.7ms | Allocations: 1641)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:38:45 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 1.9ms | Allocations: 398)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:39:01 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.3ms | Allocations: 54)
+Completed 200 OK in 8ms (Views: 2.7ms | Allocations: 1636)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:39:08 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 2.1ms | Allocations: 398)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:39:39 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 66)
+Completed 200 OK in 8ms (Views: 2.7ms | Allocations: 1638)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:39:45 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 32)
+Completed 200 OK in 6ms (Views: 3.6ms | Allocations: 394)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:39:51 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 32)
+Completed 200 OK in 4ms (Views: 1.9ms | Allocations: 369)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:40:23 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 54)
+Completed 200 OK in 10ms (Views: 2.6ms | Allocations: 1641)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:46:22 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 1.0ms | Allocations: 136)
+Completed 200 OK in 28ms (Views: 24.0ms | Allocations: 1254)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:46:24 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 1.6ms | Allocations: 396)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:46:25 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.3ms | Allocations: 24)
+Completed 200 OK in 6ms (Views: 2.1ms | Allocations: 372)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:46:27 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.3ms | Allocations: 24)
+Completed 200 OK in 5ms (Views: 3.2ms | Allocations: 372)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:46:32 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 2.0ms | Allocations: 372)
+
+
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221101103836)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "username" varchar, "email" varchar, "identifier" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221101103836"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfiles (20221103164711)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "address" varchar, "phone" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103164711"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20221103172808)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar, "year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103172808"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCars (20221103175444)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "cars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "carname" varchar, "carcolor" varchar, "carnumber" integer, "carprivate" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103175444"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJobs (20221103185326)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "jobtitle" varchar, "workhours" integer, "company" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221103185326"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20221110091439)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221110091439"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePhones (20221113153719)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "phones" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar, "serial" varchar NOT NULL, "color" varchar, "phonenumber" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_phones_on_model" ON "phones" ("model")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_phones_on_serial" ON "phones" ("serial")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_phones_on_phonenumber" ON "phones" ("phonenumber")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221113153719"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClints (20221114100435)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "clints" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar NOT NULL, "birth_date" varchar, "gender" varchar, "clint_email" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_clints_on_full_name" ON "clints" ("full_name")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_clints_on_clint_email" ON "clints" ("clint_email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221114100435"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-15 13:49:17.823250"], ["updated_at", "2022-11-15 13:49:17.823250"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/clints/index" for ::1 at 2022-11-15 05:49:27 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 54)
+Completed 200 OK in 9ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 1658)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:49:32 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 2.3ms | Allocations: 24)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 402)
+
+
+Started GET "/clints/index" for ::1 at 2022-11-15 05:49:34 -0800
+Processing by ClintsController#index as */*
+  Rendering clints/index.json.jbuilder
+  Rendered clints/index.json.jbuilder (Duration: 0.2ms | Allocations: 24)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClint Create (1.9ms)[0m  [1m[32mINSERT INTO "clints" ("full_name", "birth_date", "gender", "clint_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Mikaela Hammes II"], ["birth_date", "1966-12-03"], ["gender", "Male"], ["clint_email", "arnoldo.nolan@dubuque.io"], ["created_at", "2022-11-15 13:51:16.302260"], ["updated_at", "2022-11-15 13:51:16.302260"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClint Create (1.4ms)[0m  [1m[32mINSERT INTO "clints" ("full_name", "birth_date", "gender", "clint_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Stefania Beahan"], ["birth_date", "1984-02-26"], ["gender", "Male"], ["clint_email", "jamison_hyatt@ziemann.com"], ["created_at", "2022-11-15 13:51:16.316953"], ["updated_at", "2022-11-15 13:51:16.316953"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClint Create (8.0ms)[0m  [1m[32mINSERT INTO "clints" ("full_name", "birth_date", "gender", "clint_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Edie Smitham"], ["birth_date", "1992-03-12"], ["gender", "Male"], ["clint_email", "rosalina@zulauf-bednar.org"], ["created_at", "2022-11-15 13:54:27.079134"], ["updated_at", "2022-11-15 13:54:27.079134"]]
+  [1m[36mTRANSACTION (16.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClint Create (1.4ms)[0m  [1m[32mINSERT INTO "clints" ("full_name", "birth_date", "gender", "clint_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["full_name", "Benedict Hudson"], ["birth_date", "1965-08-10"], ["gender", "Female"], ["clint_email", "elfriede@kris.co"], ["created_at", "2022-11-15 13:54:27.109636"], ["updated_at", "2022-11-15 13:54:27.109636"]]
+  [1m[36mTRANSACTION (13.1ms)[0m  [1m[36mcommit transaction[0m

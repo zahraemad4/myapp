@@ -30,16 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
   end
 
   create_table "clints", force: :cascade do |t|
-    t.integer "clint_id", null: false
     t.string "full_name", null: false
-    t.string "phones"
     t.string "birth_date"
     t.string "gender"
     t.string "clint_email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["clint_email"], name: "index_clints_on_clint_email"
-    t.index ["clint_id"], name: "index_clints_on_clint_id"
     t.index ["full_name"], name: "index_clints_on_full_name"
   end
 
