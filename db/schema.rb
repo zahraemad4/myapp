@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
   end
 
   create_table "clints", force: :cascade do |t|
+    t.string "clint_id", null: false
     t.string "full_name", null: false
     t.string "birth_date"
     t.string "gender"
@@ -50,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
   end
 
   create_table "phones", force: :cascade do |t|
+    t.integer "phones_id"
     t.string "model"
     t.string "serial", null: false
     t.string "color"
@@ -58,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
     t.datetime "updated_at", null: false
     t.index ["model"], name: "index_phones_on_model"
     t.index ["phonenumber"], name: "index_phones_on_phonenumber"
+    t.index ["phones_id"], name: "index_phones_on_phones_id"
     t.index ["serial"], name: "index_phones_on_serial"
   end
 
@@ -84,4 +87,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_100435) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "phones", "phones", column: "phones_id"
 end
